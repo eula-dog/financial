@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="financial-bean" />
+        <module name="financial-hetong" />
+        <module name="financial-interface" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="comatguigufinancial" target="1.8" />
+      <module name="financial-bean" target="1.8" />
+      <module name="financial-hetong" target="1.8" />
+      <module name="financial-interface" target="1.8" />
+      <module name="financial-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

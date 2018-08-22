@@ -1,0 +1,63 @@
+.icon-blank {
+	BACKGROUND: url(icons/blank.gif) no-repeat
+}
+.icon-add {
+	BACKGROUND: url(icons/edit_add.png) no-repeat
+}
+.icon-edit {
+	BACKGROUND: url(icons/pencil.png) no-repeat
+}
+.icon-remove {
+	BACKGROUND: url(icons/edit_remove.png) no-repeat
+}
+.icon-save {
+	BACKGROUND: url(icons/filesave.png) no-repeat
+}
+.icon-cut {
+	BACKGROUND: url(icons/cut.png) no-repeat
+}
+.icon-ok {
+	BACKGROUND: url(icons/ok.png) no-repeat
+}
+.icon-no {
+	BACKGROUND: url(icons/no.png) no-repeat
+}
+.icon-cancel {
+	BACKGROUND: url(icons/cancel.png) no-repeat
+}
+.icon-reload {
+	BACKGROUND: url(icons/reload.png) no-repeat
+}
+.icon-search {
+	BACKGROUND: url(icons/search.png) no-repeat
+}
+.icon-print {
+	BACKGROUND: url(icons/print.png) no-repeat
+}
+.icon-help {
+	BACKGROUND: url(icons/help.png) no-repeat
+}
+.icon-undo {
+	BACKGROUND: url(icons/undo.png) no-repeat
+}
+.icon-redo {
+	BACKGROUND: url(icons/redo.png) no-repeat
+}
+.icon-back {
+	BACKGROUND: url(icons/back.png) no-repeat
+}
+.icon-sum {
+	BACKGROUND: url(icons/sum.png) no-repeat
+}
+.icon-tip {
+	BACKGROUND: url(icons/tip.png) no-repeat
+}
+.icon-mini-add {
+	BACKGROUND: url(icons/mini_add.png) no-repeat 2px 2px
+}
+.icon-mini-edit {
+	BACKGROUND: url(icons/mini_edit.png) no-repeat 2px 2px
+}
+.icon-mini-refresh {
+	BACKGROUND: url(icons/mini_refresh.png) no-repeat 3px 2px
+}

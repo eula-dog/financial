@@ -1,0 +1,180 @@
+.ztree * {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, AppleGothic, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+.ztree {
+	PADDING-BOTTOM: 5px; MARGIN: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; COLOR: #333; PADDING-TOP: 5px
+}
+.ztree LI {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 14px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; WHITE-SPACE: nowrap; PADDING-TOP: 0px
+}
+.ztree LI UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 18px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.ztree LI UL.line {
+	BACKGROUND: url(./img/line_conn.gif) repeat-y 0px 0px
+}
+.ztree LI A {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: transparent; MARGIN: 0px 10px 0px 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 3px; DISPLAY: inline-block; HEIGHT: 16px; COLOR: #333; VERTICAL-ALIGN: top; CURSOR: pointer; TEXT-DECORATION: none; PADDING-TOP: 1px
+}
+.ztree LI A:hover {
+	TEXT-DECORATION: underline
+}
+.ztree LI A.curSelectedNode {
+	BORDER-BOTTOM: #ffb951 1px solid; BORDER-LEFT: #ffb951 1px solid; BACKGROUND-COLOR: #ffe6b0; COLOR: black; BORDER-TOP: #ffb951 1px solid; BORDER-RIGHT: #ffb951 1px solid; PADDING-TOP: 0px; opacity: 0.8
+}
+.ztree LI A.curSelectedNode_Edit {
+	BORDER-BOTTOM: #ffb951 1px solid; BORDER-LEFT: #ffb951 1px solid; BACKGROUND-COLOR: #ffe6b0; COLOR: black; BORDER-TOP: #ffb951 1px solid; BORDER-RIGHT: #ffb951 1px solid; PADDING-TOP: 0px; opacity: 0.8
+}
+.ztree LI A.tmpTargetNode {
+	BORDER-BOTTOM: #316ac5 1px solid; FILTER: alpha(opacity=80); BORDER-LEFT: #316ac5 1px solid; BACKGROUND-COLOR: #316ac5; COLOR: white; BORDER-TOP: #316ac5 1px solid; BORDER-RIGHT: #316ac5 1px solid; PADDING-TOP: 0px; opacity: 0.8
+}
+.ztree LI A INPUT.rename {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 80px; PADDING-RIGHT: 0px; HEIGHT: 14px; FONT-SIZE: 12px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+.ztree LI SPAN {
+	LINE-HEIGHT: 16px; MARGIN-RIGHT: 2px
+}
+.ztree LI BUTTON {
+	BACKGROUND-IMAGE: url(./img/zTreeStandard.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: transparent; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: medium; WIDTH: 16px; BACKGROUND-ATTACHMENT: scroll; BACKGROUND-REPEAT: no-repeat; HEIGHT: 16px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; CURSOR: pointer; BORDER-RIGHT: 0px
+}
+.ztree LI BUTTON.chk {
+	MARGIN: 0px 3px 0px 0px; WIDTH: 13px; HEIGHT: 13px; CURSOR: auto
+}
+.ztree LI BUTTON.checkbox_false_full {
+	BACKGROUND-POSITION: 0px 0px
+}
+.ztree LI BUTTON.checkbox_false_full_focus {
+	BACKGROUND-POSITION: 0px -14px
+}
+.ztree LI BUTTON.checkbox_false_part {
+	BACKGROUND-POSITION: 0px -28px
+}
+.ztree LI BUTTON.checkbox_false_part_focus {
+	BACKGROUND-POSITION: 0px -42px
+}
+.ztree LI BUTTON.checkbox_false_disable {
+	BACKGROUND-POSITION: 0px -56px
+}
+.ztree LI BUTTON.checkbox_true_full {
+	BACKGROUND-POSITION: -14px 0px
+}
+.ztree LI BUTTON.checkbox_true_full_focus {
+	BACKGROUND-POSITION: -14px -14px
+}
+.ztree LI BUTTON.checkbox_true_part {
+	BACKGROUND-POSITION: -14px -28px
+}
+.ztree LI BUTTON.checkbox_true_part_focus {
+	BACKGROUND-POSITION: -14px -42px
+}
+.ztree LI BUTTON.checkbox_true_disable {
+	BACKGROUND-POSITION: -14px -56px
+}
+.ztree LI BUTTON.radio_false_full {
+	BACKGROUND-POSITION: -28px 0px
+}
+.ztree LI BUTTON.radio_false_full_focus {
+	BACKGROUND-POSITION: -28px -14px
+}
+.ztree LI BUTTON.radio_false_part {
+	BACKGROUND-POSITION: -28px -28px
+}
+.ztree LI BUTTON.radio_false_part_focus {
+	BACKGROUND-POSITION: -28px -42px
+}
+.ztree LI BUTTON.radio_false_disable {
+	BACKGROUND-POSITION: -28px -56px
+}
+.ztree LI BUTTON.radio_true_full {
+	BACKGROUND-POSITION: -42px 0px
+}
+.ztree LI BUTTON.radio_true_full_focus {
+	BACKGROUND-POSITION: -42px -14px
+}
+.ztree LI BUTTON.radio_true_part {
+	BACKGROUND-POSITION: -42px -28px
+}
+.ztree LI BUTTON.radio_true_part_focus {
+	BACKGROUND-POSITION: -42px -42px
+}
+.ztree LI BUTTON.radio_true_disable {
+	BACKGROUND-POSITION: -42px -56px
+}
+.ztree LI BUTTON.switch {
+	WIDTH: 18px; HEIGHT: 18px
+}
+.ztree LI BUTTON.root_open {
+	BACKGROUND-POSITION: -92px -54px
+}
+.ztree LI BUTTON.root_close {
+	BACKGROUND-POSITION: -74px -54px
+}
+.ztree LI BUTTON.roots_open {
+	BACKGROUND-POSITION: -92px 0px
+}
+.ztree LI BUTTON.roots_close {
+	BACKGROUND-POSITION: -74px 0px
+}
+.ztree LI BUTTON.center_open {
+	BACKGROUND-POSITION: -92px -18px
+}
+.ztree LI BUTTON.center_close {
+	BACKGROUND-POSITION: -74px -18px
+}
+.ztree LI BUTTON.bottom_open {
+	BACKGROUND-POSITION: -92px -36px
+}
+.ztree LI BUTTON.bottom_close {
+	BACKGROUND-POSITION: -74px -36px
+}
+.ztree LI BUTTON.noline_open {
+	BACKGROUND-POSITION: -92px -72px
+}
+.ztree LI BUTTON.noline_close {
+	BACKGROUND-POSITION: -74px -72px
+}
+.ztree LI BUTTON.root_docu {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.ztree LI BUTTON.roots_docu {
+	BACKGROUND-POSITION: -56px 0px
+}
+.ztree LI BUTTON.center_docu {
+	BACKGROUND-POSITION: -56px -18px
+}
+.ztree LI BUTTON.bottom_docu {
+	BACKGROUND-POSITION: -56px -36px
+}
+.ztree LI BUTTON.noline_docu {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.ztree LI BUTTON.ico_open {
+	BACKGROUND-POSITION: -110px -16px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+.ztree LI BUTTON.ico_close {
+	BACKGROUND-POSITION: -110px 0px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+.ztree LI BUTTON.ico_docu {
+	BACKGROUND-POSITION: -110px -32px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+.ztree LI BUTTON.edit {
+	BACKGROUND-POSITION: -110px -48px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+.ztree LI BUTTON.remove {
+	BACKGROUND-POSITION: -110px -64px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+.ztree LI BUTTON.ico_loading {
+	BACKGROUND: url(./img/loading.gif) no-repeat 0px 0px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 2px
+}
+UL.tmpTargetzTree {
+	FILTER: alpha(opacity=80); BACKGROUND-COLOR: #ffe6b0; opacity: 0.8
+}
+BUTTON.tmpzTreeMove_arrow {
+	BORDER-BOTTOM: 0px; POSITION: absolute; BORDER-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 2px 0px 0px 1px; PADDING-LEFT: 0px; WIDTH: 16px; PADDING-RIGHT: 0px; BACKGROUND: url(./img/zTreeStandard.gif) no-repeat -110px -80px; HEIGHT: 16px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL.zTreeDragUL {
+	BORDER-BOTTOM: #00b83f 1px dotted; POSITION: absolute; FILTER: alpha(opacity=80); BORDER-LEFT: #00b83f 1px dotted; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #cfcfcf; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: auto; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; BORDER-TOP: #00b83f 1px dotted; BORDER-RIGHT: #00b83f 1px dotted; PADDING-TOP: 0px; opacity: 0.8
+}
+.zTreeMask {
+	Z-INDEX: 10000; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #cfcfcf; opacity: 0.0
+}

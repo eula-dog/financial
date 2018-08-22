@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.financial.hetong.mapper.NplmContractAttributeEntityMapper">
+    <select id="queryByParams" resultMap="NplmContractAttributeEntity">
+     SELECT *
+     FROM nplm_contract_attribute nc
+     INNER JOIN nplm_loan_contract nl ON nc.`loan_contract_id`= nl.`LOAN_CONTRACT_NUM`
+     INNER JOIN nplm_borrower_info nb ON nb.`id`=nl.`borrower_id`
+
+        <where>
+            <if test="contract.nbi.clientName!=null">
+                AND CLIENT_NAME=#{contract.nbi.clientName}
+            </if>
+            <if test="contract.loanContractId!=null">
+                and loan_contract_id = #{contract.loanContractId}
+            </if>
+        </where>
+        limit #{pageNum} ,#{rows}
+    <!-- <where>
+         <if test="contract.nbi.clientName!=null">
+             and CLIENT_NAME = #{contract.nbi.clientName}
+        </if>
+        <if test="contract.loanContractId!=null">
+              and loan_contract_id = #{contract.loanContractId}
+        </if>
+         <if test="contract.nbi.clientName!=null">
+              and CLIENT_NAME = #{contract.nbi.clientName}
+          </if>
+     </where>-->
+    </select>
+
+
+    <select id="getCount" resultMap="NplmContractAttributeEntity">
+        SELECT *
+        FROM nplm_contract_attribute nc
+        INNER JOIN nplm_loan_contract nl ON nc.`loan_contract_id`= nl.`LOAN_CONTRACT_NUM`
+        INNER JOIN nplm_borrower_info nb ON nb.`id`=nl.`borrower_id`
+
+        <where>
+            <if test="contract.nbi.clientName!=null">
+                AND CLIENT_NAME=#{contract.nbi.clientName}
+            </if>
+            <if test="contract.loanContractId!=null">
+                and loan_contract_id = #{contract.loanContractId}
+            </if>
+        </where>
+
+        <!-- <where>
+             <if test="contract.nbi.clientName!=null">
+                 and CLIENT_NAME = #{contract.nbi.clientName}
+            </if>
+            <if test="contract.loanContractId!=null">
+                  and loan_contract_id = #{contract.loanContractId}
+            </if>
+             <if test="contract.nbi.clientName!=null">
+                  and CLIENT_NAME = #{contract.nbi.clientName}
+              </if>
+         </where>-->
+    </select>
+
+    <resultMap id="NplmContractAttributeEntity" type="com.atguigu.financial.bean.NplmContractAttributeEntity"
+               autoMapping="true">
+        <id column="id" property="id"></id>
+        <association property="nbi" autoMapping="true" javaType="com.atguigu.financial.bean.NplmBorrowerInfoEntity">
+            <id column="ID" property="id"></id>
+        </association>
+        <association property="nlce" autoMapping="true" javaType="com.atguigu.financial.bean.NplmLoanContractEntity">
+            <id column="id" property="id"></id>
+        </association>
+    </resultMap>
+
+</mapper>

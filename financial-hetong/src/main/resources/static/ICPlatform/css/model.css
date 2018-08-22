@@ -1,0 +1,51 @@
+#table_ {
+	border-collapse:collapse;
+	width: 100%
+}
+
+#table_OperateBtn {
+	border-collapse:collapse;
+	text-align:right;
+	background-color:rgb(240,240,240);
+	width: 100%
+}
+
+#tr_cell{
+	height: 30px;
+}
+#td_1{
+	background-color:rgb(240,240,240);
+	text-align:right;
+	width: 13%;
+}
+.td_1{
+	text-align: right;
+}
+#td_2{
+	width: 21%;
+}
+#titlebg{
+	background-color: rgb(152,152,152);
+}
+#flag{
+	color: red;
+}
+#img{
+	width: 100%
+	height: 200px;
+	margin-top:5px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.pict{
+	width: 270x;
+	float:left;
+	margin:0 15px;
+}
+#center{
+	display:block;
+	margin:0 auto;
+}
+.backgroundGray{
+	background-color:#EFEFEF;
+}

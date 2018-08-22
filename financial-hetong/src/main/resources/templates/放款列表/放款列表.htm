@@ -1,0 +1,854 @@
+<body>
+<title>放款列表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../ICPlatform/css/model.css" type="text/css">
+<link rel="stylesheet" href="../ICPlatform/css/model_info.css" type="text/css">
+<LINK rel=stylesheet type=text/css href="../smp_files/zTreeStyle.css">
+<link rel="stylesheet"  href="../ICPlatform/plugins/easyUI/themes/default/easyui.css" type="text/css">    
+<link rel="stylesheet" href="../ICPlatform/plugins/easyUI/themes/icon.css" type="text/css">  
+
+<script src="../ICPlatform/js/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="../ICPlatform/js/easytooltip.js" type="text/javascript"></script>
+<script src="../ICPlatform/js/jquery.form.js" type="text/javascript"></script>
+<script src="../ICPlatform/plugins/easyUI/jquery.easyui.min.js" type="text/javascript"></script>
+<SCRIPT type=text/javascript src="../smp_files/easyui-lang-zh_CN.js"></SCRIPT>
+<link rel="stylesheet" type="text/css" href="../demo.css">
+
+<STYLE type=text/css>UL.ztree {
+	BORDER-BOTTOM: #617775 1px solid; BORDER-LEFT: #617775 1px solid; MARGIN-TOP: 10px; BACKGROUND: #f0f6e4; BORDER-TOP: #617775 1px solid; BORDER-RIGHT: #617775 1px solid
+}
+</STYLE>
+
+<SCRIPT type=text/javascript src="../smp_files/common.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="../smp_files/constants.js"></SCRIPT>
+
+ 
+
+<style type="text/css">
+.td_1{font-size:12px;}
+
+</style>
+<style type="text/css">
+td {
+ text-align: center-left;
+ 
+} 
+
+<style type="text/css">
+td {
+	border:dotted 1px rgb(204,204,204);
+	font-size: 12px;
+}
+</style>
+
+
+
+<script>
+
+$(document).ready(function(){
+	$('#dlg').dialog('close');
+	$('#dlg1').dialog('close');
+	$('#dlg2').dialog('close');
+});
+
+</script>
+
+<style type="text/css">
+.page_my {
+    width: 100%;
+	height: 100%;
+    margin: 0;
+	overflow-y: scroll;
+}
+
+
+</style>
+<script>
+$(function(){
+	var fromDate;
+	
+	$('#idNumber').validatebox({
+		required: true,
+	    validType: 'idcard'
+	});
+		
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('table.datagrid-htable').find('.datagrid-cell').css("text-align", 'center');
+	$('table.datagrid-btable').find('.datagrid-row').css("text-align", 'center');
+	$('table.datagrid-btable').find('.datagrid-cell-c1-item_id16').css("text-align", 'right');
+	$('table.datagrid-btable').find('.datagrid-cell-c1-item_id17').css("text-align", 'right');
+
+});
+
+function confirm1(){
+            $.messager.confirm('系统提示：', '确定要撤销该条收款吗？此操作不可恢复！', function(r){
+                if (r){
+                    alert('confirmed: '+r);
+                }
+
+            });
+
+        }
+
+</script>
+
+
+<div>&nbsp;</div>
+    		<form id="searchForm" method="post">
+		    	<table style="height: auto; width: 100%;" >
+		    		<tbody>
+					<tr>
+					
+					<td width="10%" class="td_1">
+		    				合同编号：
+		    			</td>
+		    			<td width="20%">
+		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
+		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
+		    				<input type="hidden" id="sysId" name="sysId" value="11">
+		    			</td>
+					
+						<td width="10%" class="td_1">
+		    				客户姓名：
+		    			</td>
+		    			<td width="20%">
+		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
+		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
+		    				<input type="hidden" id="sysId" name="sysId" value="11">
+		    			</td>
+						
+						
+						
+						<td width="10%" class="td_1">
+		    				证件号：
+		    			</td>
+		    			<td width="20%">
+		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
+		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
+		    				<input type="hidden" id="sysId" name="sysId" value="11">
+		    			</td>
+						
+						
+					</tr>
+					<tr>
+					
+					<td width="8%" class="td_1">贷款品种： </td>
+								<td width="26%">
+										<input type="hidden" id="selectedOffice" name="selectedOffice" value="172,58,11,15,9,104,195,165,193,53,33,1,54,260,11011192,47,113,6,273,22,57,134,129,271,127,100,197,85,28,301,62,175,155,101,223,250,1,222,200,249,204,135,163,159,272,123,42,95,23,144,20,75,32,207,224,142,120,3,11011279,11009482,137,203,270,25,6,151,181,116,247,72,262,184,110,66,186,138,167,130,221,12,269,189,274,21,152,251,88,114,76,201,202,31,178,26,98,69,241,230,106,162,265,43,107,68,65,121,206,99,73,141,191,63,17,196,78,133,157,148,231,239,299,176,160,131,70,161,154,51,111,168,214,71,11011325,11110829,96,248,41,118,109,153,124,194,303,102,268,11011192,94,64,29,60,36,97,6,240,147,24,145,90,87,238,132,94,74,192,3,302,11011279,112,188,243,185,39,55,16,187,267,23,103,177,190,139,128,275,115,237,261,146,136,44,217,166,182,173,149,228,122,150,59,10,263,67,93,183,44,46,14,125,170,40,205,301,50,23,300,212,174,126,77,276,229,79,164,156,13,158,35,89,86,172"> 
+									<span class="searchbox" style="width:189px;"> 
+										<input class="searchbox-text" type="text" id="selectedOfficeName" name="selectedOfficeName" style="width:169px;" value="宜信公司，新薪贷......" readonly="readonly" data-options="required:'true'">
+										<span class="searchbox-button" onClick="deptree('open');"></span>
+									</span>
+								</td>	
+								
+					<td width="10%" class="td_1">城市地区：</td>
+						<td width="20%">
+		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
+		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
+		    				<input type="hidden" id="sysId" name="sysId" value="11">
+		    			</td>
+						
+					
+					<td width="10%" class="td_1">营业部：</td>
+						<td width="20%">
+		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
+		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
+		    				<input type="hidden" id="sysId" name="sysId" value="11">
+		    			</td>	
+						
+					</tr>
+					<tr>		
+								<td width="10%" class="td_1">订单状态：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+							
+								<option value="1">请选择</option>
+								<option value="1">付款失败</option>
+								<option value="2">付款成功</option>	
+								<option value="3">未请求</option>
+								<option value="9">未请求 等待划扣前期费用</option>
+								<option value="4">请求中…</option>
+								<option value="5">请求成功</option>	
+								<option value="6">请求失败</option>	
+								<option value="7">等待撤销</option>
+								<option value="8">已撤销</option>
+									
+									
+							
+							</select>		
+						</td> 
+					
+						
+						
+						<td width="10%" class="td_1">合同签订时间： </td>
+						<td width="20%">  
+							<input type="text" id="repaymentStart" style="width: 80px; display: none;" class="easyui-datetimebox" value="" comboname="repaymentStart">
+							- 
+							<input type="text" id="repaymentEnd" style="width: 80px; display: none;" class="easyui-datetimebox" value="" data-options="validType:'checkDateTime[\'#searchForm input[name=repaymentStart]\']'" comboname="repaymentEnd">
+						</td>
+						
+
+					
+					  
+							<td width="10%" class="td_1">请求放款时间： </td>
+						<td width="20%">  
+							<input type="text" id="repaymentStart" style="width: 80px; display: none;" class="easyui-datetimebox" value="" comboname="repaymentStart">
+							- 
+							<input type="text" id="repaymentEnd" style="width: 80px; display: none;" class="easyui-datetimebox" value="" data-options="validType:'checkDateTime[\'#searchForm input[name=repaymentStart]\']'" comboname="repaymentEnd">
+						</td>
+					</tr>
+
+					 <tr>
+						
+						
+						<td width="10%" class="td_1">放款时间： </td>
+						<td width="20%">  
+							<input type="text" id="repaymentStart" style="width: 80px; display: none;" class="easyui-datetimebox" value="" comboname="repaymentStart">
+							- 
+							<input type="text" id="repaymentEnd" style="width: 80px; display: none;" class="easyui-datetimebox" value="" data-options="validType:'checkDateTime[\'#searchForm input[name=repaymentStart]\']'" comboname="repaymentEnd">
+						</td>
+					
+					 <td width="10%" class="td_1">放款模式：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">差额放款</option>
+								<option value="2">先放款后收费</option>	
+								<option value="3">先收费后放款</option>	
+								<option value="4">先放款后收费（线下收取前期费用）</option>
+
+							</select>		
+						</td>
+					
+						
+					 
+		
+
+				  
+				       <td width="10%" class="td_1">放款状态：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">放款成功</option>
+								<option value="2">放款失败</option>	
+								<option value="3">满足条件未放款</option>	
+								<option value="4">不满足放款条件</option>
+						</td>
+					</tr>
+
+					 <tr>
+						
+						<td width="10%" class="td_1">收款银行：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">招商银行</option>
+								<option value="2">中国农业银行</option>	
+								<option value="3">中国工商银行</option>	
+								<option value="4">中国民生银行</option>
+						</td>
+						
+						<td width="10%" class="td_1">
+		    				收款银行账号：
+		    			</td>
+		    			<td width="20%">
+		    				<input  id="clientName" name="clientName" style="width:188px;" value="">
+		    				<input type="hidden" id="pPage" name="pageSize" value=""> 
+		    				<input type="hidden" id="pSize" name="pageSize" value=""> 
+		    				<input type="hidden" id="sysId" name="sysId" value="11">
+		    			</td>
+						
+						<td width="8%" class="td_1">业务模式： </td>
+									<td width="26%">
+										<select class="easyui-combobox combobox-f combo-f" id="ret_code_status" style="width: 190px; display: none;" editable="fales" comboname="productsTypeName">
+
+								<option value="0">请选择</option>
+								<option value="1">信托</option>
+								<option value="2">转债权</option>	
+								<option value="3">融资租赁</option>	
+								<option value="4">火凤凰</option>	
+								<option value="5">互联网</option>
+								
+							</select>
+							
+						</td>	
+						
+								
+							 </tr>
+							 
+						<tr>
+					
+						 
+						
+						
+						<td width="10%" class="td_1">信托机构：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">中航信托</option>
+								<option value="2">华澳华宜</option>	
+								<option value="3">……</option>	
+
+								
+							</select>		
+						</td> 
+				   
+					
+						<td width="10%" class="td_1">信托产品系列：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">天宜</option>
+								<option value="2">天驰</option>	
+								<option value="3">天惠</option>	
+								<option value="4">……</option>
+								
+								
+							</select>		
+						</td> 
+						
+						 <td width="10%" class="td_1">信托计划：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">1号</option>
+								<option value="2">2号</option>	
+								<option value="3">3号</option>	
+								<option value="4">4号</option>
+								<option value="5">5号</option>
+								<option value="6">6号</option>	
+								<option value="7">……</option>
+								
+								
+							</select>		
+						</td> 
+
+				   </tr>
+				   
+
+				  
+					 <tr>	
+						
+						<td width="8%" class="td_1">
+		    				快捷操作： 
+		    			</td>
+		    			<td width="28%">
+		    				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"   
+							onclick="javascript:alert('批量向结算发送查询收款结果请求')">查询放款结果</a>		
+		    			</td>	
+								
+						<td width="8%" class="td_1">
+		    				快捷操作： 
+		    			</td>
+		    			<td width="28%">
+		    				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"   
+							onclick="javascript:alert('批量重新向结算发送查询收款结果请求')">订单重发</a>		
+		    			</td>
+						
+						<td width="10%" class="td_1"></td>
+						<td width="20%">
+						<a href="javascript:void(0)" class="easyui-linkbutton l-btn" onClick="searchInfo();" group="" id="">查询</a>
+		               		&nbsp;
+		               		<a href="javascript:void(0)" class="easyui-linkbutton l-btn" onClick="clearForm()" group="" id="">重置</a>								
+		              </td>	
+						
+						
+						
+						 </tr>
+						 
+						  
+				   <tr>
+						
+						
+						<td width="8%" class="td_1">
+		    			快捷操作：	
+		    			</td>
+		    			<td width="20%">
+		    				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"   
+							onclick="javascript:alert('导出放款后的信托放款明细')">导出放款明细</a>		
+		    			</td>
+						
+						
+						<td width="8%" class="td_1">
+		    			<select class="easyui-combobox combobox-f combo-f" id="productsTypeName" style="width: 110px; display: none;" editable="fales" comboname="productsTypeName">
+								<option value="1">批次选择</option>
+								<option value="7">2014-08-21</option>
+								<option value="6">2014-09-21</option>
+								<option value="2">2014-10-21</option>
+								<option value="3">2014-11-21</option>
+								<option value="4">2014-12-21</option>
+								<option value="5">2015-10-21</option>
+							</select>
+		    			</td>
+						
+						<!--td width="13%">
+							<select class="easyui-combobox combobox-f combo-f" id="productsTypeName" style="width: 110px; display: none;" editable="fales" comboname="productsTypeName">
+								<option value="1">批次选择</option>
+								<option value="7">2014-08-21</option>
+								<option value="6">2014-09-21</option>
+								<option value="2">2014-10-21</option>
+								<option value="3">2014-11-21</option>
+								<option value="4">2014-12-21</option>
+								<option value="5">2015-10-21</option>
+							</select>
+						</td-->
+						
+		    			<td width="20%">
+		    				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'"   
+							onclick="javascript:alert('可选择批次导出放款列表')">导出批次</a>		
+		    			</td>
+						
+						</tr>
+					
+					
+					
+						<!--td width="10%" class="td_1">是否火凤凰：</td>
+						<td width="20%">
+							<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">全部</option>
+								<option value="2">是</option>	
+								<option value="3">否</option>	
+									</select>		
+						</td--> 						
+						
+						
+				   </tr>
+				   
+				   
+						
+						
+
+					<div>
+			  
+				   <table>
+	               <tbody><tr>
+					 <td width="5%" class="td_1">
+		    				线下放款前： 
+		    			</td>
+	                    <td width="25%">
+	               
+		                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="$('#dlg').dialog('open')">导出放款列表</a>
+		                  
+	                    </td>	                    
+	                </tr>
+	             </tbody></table>
+            </div>
+			
+			<div id="dlg" class="easyui-dialog" title="导出需确认：" data-options="iconCls:'icon-save'"style="width:auto;height:auto">
+				<table>   
+				   <thead>   
+							<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+							
+							<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+										
+						   <tr  id="tr_cell">
+								<td id="td_c"  style="width:40%;" >*选择银行： </td>
+								<td  id="td_s2"  style="width:75%;">
+											<select class="easyui-combobox combobox-f combo-f" id="productsTypeName" style="width: 200px; display: none;" editable="fales" comboname="productsTypeName">
+												<option value="1">请选择</option>
+												<option value="2">招商银行</option>
+												
+											</select>
+						  </tr>
+						
+						  <tr id="tr_cell">
+                         <td id="td_c"  style="width:40%;" >&nbsp;</span>*贷款品种：</td>
+                         <td id="td_s2"  style="width:75%;">
+								<input type="hidden" id="selectedOffice" name="selectedOffice" value="172,58,11,15,9,104,195,165,193,53,33,1,54,260,11011192,47,113,6,273,22,57,134,129,271,127,100,197,85,28,301,62,175,155,101,223,250,1,222,200,249,204,135,163,159,272,123,42,95,23,144,20,75,32,207,224,142,120,3,11011279,11009482,137,203,270,25,6,151,181,116,247,72,262,184,110,66,186,138,167,130,221,12,269,189,274,21,152,251,88,114,76,201,202,31,178,26,98,69,241,230,106,162,265,43,107,68,65,121,206,99,73,141,191,63,17,196,78,133,157,148,231,239,299,176,160,131,70,161,154,51,111,168,214,71,11011325,11110829,96,248,41,118,109,153,124,194,303,102,268,11011192,94,64,29,60,36,97,6,240,147,24,145,90,87,238,132,94,74,192,3,302,11011279,112,188,243,185,39,55,16,187,267,23,103,177,190,139,128,275,115,237,261,146,136,44,217,166,182,173,149,228,122,150,59,10,263,67,93,183,44,46,14,125,170,40,205,301,50,23,300,212,174,126,77,276,229,79,164,156,13,158,35,89,86,172"> 
+									<span class="searchbox" style="width:200px;"> 
+										<input class="searchbox-text" type="text" id="selectedOfficeName" name="selectedOfficeName" style="width:169px;" value="宜信公司，新薪贷......" readonly="readonly" data-options="required:'true'">
+										<span class="searchbox-button" onClick="deptree('open');"></span>
+									</span>
+								</td>
+                     </tr>
+						
+					<tbody>
+					
+					<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+							
+					<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+					
+							
+					</table>  	
+			   <table id="table_OperateBtn" border=0>
+	                <tbody><tr>
+	                    <td>
+	                    	<span id="submit_right">
+		                     <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">确认导出</a>
+		                        &nbsp;
+								<a id="submit" href="#" class="easyui-linkbutton l-btn" onClick="commitDeratePayment();" group="">取消</a>
+		                       
+		                       
+	                        </span>
+	                    </td>	
+						
+	                </tr>
+	            </tbody></table></div>
+
+				
+				
+				
+						<div>
+			  
+				   <table>
+	               <tbody><tr>
+					 <td width="5%" class="td_1">
+		    				线下放款后： 
+		    			</td>
+	                    <td width="25%">
+	               
+		                     <a href="javascript:void(1)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="$('#dlg1').dialog('open')">导入放款列表</a>
+		                  
+	                    </td>	                    
+	                </tr>
+	             </tbody></table>
+            </div>
+			
+			<div id="dlg1" class="easyui-dialog" title="导入需确认：" data-options="iconCls:'icon-save'"style="width:auto;height:auto">
+				<table>   
+				   <thead>   
+							<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+							
+							<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+										
+						   <tr  id="tr_cell">
+								<td id="td_c"  style="width:40%;" >*选择银行： </td>
+								<td  id="td_s2"  style="width:75%;">
+											<select class="easyui-combobox combobox-f combo-f" id="productsTypeName" style="width: 200px; display: none;" editable="fales" comboname="productsTypeName">
+												<option value="1">请选择</option>
+												<option value="2">招商银行</option>
+												
+											</select>
+						  </tr>
+						
+						  
+						
+					<tbody>
+					
+					<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+							
+					<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+					
+							
+					</table>  	
+			   <table id="table_OperateBtn" border=0>
+	                <tbody><tr>
+	                    <td>
+	                    	<span id="submit_right">
+		                     <a href="javascript:void(1)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">确认导入</a>
+		                        &nbsp;
+								<a id="submit" href="#" class="easyui-linkbutton l-btn" onClick="commitDeratePayment();" group="">取消</a>
+		                       
+		                       
+	                        </span>
+	                    </td>	                    
+	                </tr>
+	            </tbody></table></div>
+
+				
+				
+					
+						<div>
+			  
+				   <table>
+	               <tbody><tr>
+					 <td width="5%" class="td_1">
+		    				信托放款前： 
+		    			</td>
+	                    <td width="25%">
+	               
+		                     <a href="javascript:void(2)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="$('#dlg2').dialog('open')">导出放款名单</a>
+		                  
+	                    </td>	 
+                   
+	                </tr>
+	             </tbody></table>
+            </div>
+			
+			<div id="dlg2" class="easyui-dialog" title="导出需确认：" data-options="iconCls:'icon-save'"style="width:auto;height:auto">
+				<table>   
+				   <thead>   
+							<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+							
+							<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+										
+						   <tr  id="tr_cell">
+								<td id="td_c"  style="width:40%;" >*信托机构： </td>
+								<td  id="td_s2"  style="width:75%;">
+											<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">中航信托</option>
+								<option value="2">华澳华宜</option>	
+								<option value="3">……</option>	
+
+								
+							</select>	
+						  </tr>
+						
+						  <tr id="tr_cell">
+                         <td id="td_c"  style="width:40%;" >&nbsp;</span>*信托产品系列：</td>
+                         <td id="td_s2"  style="width:75%;">
+								<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">天宜</option>
+								<option value="2">天驰</option>	
+								<option value="3">天惠</option>	
+								<option value="4">……</option>
+								
+								
+							</select>
+								</td>
+                     </tr>
+					 
+						<tr  id="tr_cell">
+								<td id="td_c"  style="width:40%;" >*信托计划： </td>
+								<td  id="td_s2"  style="width:75%;">
+											<select class="easyui-combobox combobox-f combo-f" id="type" style="width: 195px; display: none;" editable="fales" name="type">
+								<option value="0">请选择</option>
+								<option value="1">1号</option>
+								<option value="2">2号</option>	
+								<option value="3">3号</option>	
+								<option value="4">4号</option>
+								<option value="5">5号</option>
+								<option value="6">6号</option>	
+								<option value="7">……</option>
+								
+								
+							</select>
+						  </tr>
+						
+					<tbody>
+					
+					<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+							
+					<tr> <td id=""  style="width:25%;" >&nbsp;</span></td>
+                         <td id=""  style="width:75%;">
+							</td></tr>
+					
+							
+					</table>  	
+			   <table id="table_OperateBtn" border=0>
+	                <tbody><tr>
+	                    <td>
+	                    	<span id="submit_right">
+		                     <a href="javascript:void(2)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">确认导出</a>
+		                        &nbsp;
+								<a id="submit" href="#" class="easyui-linkbutton l-btn" onClick="commitDeratePayment();" group="">取消</a>
+		                       
+		                       
+	                        </span>
+	                    </td>	                    
+	                </tr>
+	            </tbody></table></div>
+				
+				
+				
+				
+						
+					
+		    	</tbody>
+				</table>
+		    </form>
+
+	<div>&nbsp;</div>
+	<div class="panel datagrid" style="width: auto;">
+	    <div class="panel-header" style="width: auto;"><div class="panel-title">放款列表</div><div class="panel-tool"></div></div> 
+
+	
+	   <table id="tt" class="easyui-treegrid" style="width:auto;height:250px"   
+        data-options="url:'get_data.php',idField:'id',treeField:'name'" pagination="true"> 
+       <thead>   
+        <tr>   
+				<th><input type="checkbox"  id="cboxchecked" /></th>
+				
+				<th data-options="field:'item_id25',width:80">操作</th>
+				<th data-options="field:'item_id1',width:100">合同编号</th> 
+				<th data-options="field:'item_id29',width:100">订单号</th>
+				<th data-options="field:'item_id2',width:100">客户姓名</th>
+				<th data-options="field:'item_id3',width:130">证件号</th>
+				<!--th data-options="field:'item_id25',width:100">是否火凤凰</th-->
+				<th data-options="field:'item_id5',width:100">城市地区</th>
+				<th data-options="field:'item_id6',width:100">营业部</th> 
+				<th data-options="field:'item_id7',width:100">贷款品种</th>
+				<th data-options="field:'item_id55',width:100">业务模式</th>
+				
+				<th data-options="field:'item_id8',width:100">信托机构</th>
+				<th data-options="field:'item_id9',width:100">信托产品系列</th>
+				<th data-options="field:'item_id10',width:100">信托计划</th>
+				<th data-options="field:'item_id28',width:150">信托审核时间</th>
+				<th data-options="field:'item_id11',width:100">签约方式</th>
+				<th data-options="field:'item_id13',width:100">循环贷</th>
+				<th data-options="field:'item_id4',width:100">是否加急</th>
+				<th data-options="field:'item_id16',width:100">借款金额</th>
+				<th data-options="field:'item_id17',width:100">放款金额</th>
+				<th data-options="field:'item_id18',width:100">放款人</th>
+				<th data-options="field:'item_id20',width:100">放款模式</th>
+				<th data-options="field:'item_id15',width:150">请求放款时间</th>
+				<th data-options="field:'item_id19',width:150">放款时间</th>
+				<th data-options="field:'item_id26',width:100">收款银行</th>
+				<th data-options="field:'item_id27',width:130">收款银行账号</th>
+				<th data-options="field:'item_id14',width:150">合同签订时间</th>
+				<th data-options="field:'item_id21',width:100">还款起始日期</th>
+				<th data-options="field:'item_id22',width:100">放款状态</th>
+				<th data-options="field:'item_id26',width:100">订单状态</th>
+				<th data-options="field:'item_id23',width:100">结算状态</th>
+				<th data-options="field:'item_id24',width:130">结算状态描述</th>
+		
+        </tr>   		
+		
+    </thead>  
+	<tbody>   
+        <tr>  
+			<td><input type="checkbox"  id="cboxchecked" /></td>
+			<td><a id="submit" href="#"  onclick="confirm1()" class="easyui-link" onClick="commitDeratePayment();" group="">撤销付款</a></td> 
+			<td>565544</td>
+			<td>565544</td>
+			
+			<td>谢青</td>
+			<td>130988197804030897</td>
+			<!--td>否</td-->
+			<td>北京</td>
+			<td>北京营业部</td>
+			<td>房贷一抵反担保</td>
+			<td>信托</td>
+			
+			<td>中航信托</td>
+			<td>天惠</td>
+			<td>4号</td>
+			<td>2014-07-01 12:32:22</td>
+			<td>电签</td>
+			<td>否</td>
+			<td>否</td>
+			<td>¥20,000.00</td>
+			<td>¥20,000.00</td>
+			<td>张三</td>
+			<td>差额放款</td>
+			<td>2014-07-13 12:32:22</td>
+			<td>2014-07-13 12:32:22</td>
+			<td>招商银行</td>
+			<td>1234 567 4567 7899</td>
+			<td>2014-07-01 12:32:22</td>
+			<td>2014-07-31</td>
+			<td>放款成功</td>
+			<td>付款成功</td>
+			<td>交易成功</td>
+			<td>【结算平台消息】……</td>
+ 
+        </tr>  
+		<tr>   
+			<td><input type="checkbox"  id="cboxchecked" /></td>	
+			<td><a id="submit" href="#"  onclick="confirm1()" class="easyui-link" onClick="commitDeratePayment();" group="">撤销付款</a></td> 
+			<td>565544</td>
+			<td>565544</td>
+			
+			<td>谢青</td>
+			<td>130988197804030897</td>
+			<!--td>否</td-->
+			<td>北京</td>
+			<td>北京营业部</td>
+			<td>房贷一抵反担保</td>
+			<td>信托</td>
+			
+			<td>中航信托</td>
+			<td>天惠</td>
+			<td>4号</td>
+			<td>2014-07-01 12:32:22</td>
+			<td>电签</td>
+			<td>否</td>
+			<td>否</td>
+			<td>¥20,000.00</td>
+			<td>¥20,000.00</td>
+			<td>张三</td>
+			<td>差额放款</td>
+			<td>2014-08-13 12:32:22</td>
+			<td>2014-08-13 12:32:22</td>
+			<td>招商银行</td>
+			<td>1234 567 4567 7899</td>
+			<td>2014-08-01 12:32:22</td>
+			<td>2014-08-31</td>
+			<td>放款成功</td>
+			<td>付款成功</td>
+			<td>交易成功</td>
+			<td>【结算平台消息】……</td>
+		
+
+        </tr> 
+		<tr>   
+			<td><input type="checkbox"  id="cboxchecked" /></td>
+			<td><a id="submit" href="#"  onclick="confirm1()" class="easyui-link" onClick="commitDeratePayment();" group="">撤销付款</a></td> 
+			<td>565544</td>
+			<td>565544</td>
+			
+			<td>谢青</td>
+			<td>130988197804030897</td>
+			<!--td>否</td-->
+			<td>北京</td>
+			<td>北京营业部</td>
+			<td>房贷一抵反担保</td>
+			<td>信托</td>
+			
+			<td>中航信托</td>
+			<td>天惠</td>
+			<td>4号</td>
+			<td>2014-07-01 12:32:22</td>
+			<td>电签</td>
+			<td>否</td>
+			<td>否</td>
+			<td>¥20,000.00</td>
+			<td>¥20,000.00</td>
+			<td>张三</td>
+			<td>差额放款</td>
+			<td>2014-09-13 12:32:22</td>
+			<td>2014-09-13 12:32:22</td>
+			<td>招商银行</td>
+			<td>1234 567 4567 7899</td>
+			<td>2014-09-01 12:32:22</td>
+			<td>2014-09-31</td>
+			<td>放款成功</td>
+			<td>付款成功</td>
+			<td>交易成功</td>
+			<td>【结算平台消息】……</td>
+			
+			
+        </tr> 
+        
+    </tbody>						
+</table>  
+
+
+
+
+
+</body></html>

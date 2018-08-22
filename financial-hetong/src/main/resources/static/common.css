@@ -1,0 +1,80 @@
+﻿@charset "utf-8";
+
+*{ 
+	/*font-size:12px; line-height:18px;
+	font-family:Arial; list-style-type:none;
+	color:#000; text-decoration:none;*/
+}
+/*word-break:break-all; word-warp:warp;*/
+
+body {background: #fff; scroll:none;}
+img,form,div  {	border:0;}
+form      { display:inline;}
+/*a         { color:#000; text-decoration: none;}
+a:visited { color:#000; text-decoration: none;}
+a:hover   { color:#000; text-decoration: none;}
+a:acitve  { color:#000; text-decoration: none;}*/
+
+/*公用样式*/
+.dot1  {background:url(../images/icon1.gif) 0 center no-repeat; }
+/*============================导航样式============================*/
+#head	{ margin:auto; width:100%; height:71px ; padding-bottom:2px;  background:#fff url(../images/header_bg.jpg) no-repeat top left; overflow:hidden;}
+#logo	{ float:left;  margin:10px 0px 0px 0px; line-height:50px;position:absolute;top:7px;left:160px;font-size:28px; font-weight:bold; color:#004680; }
+#contact{ width:650px; height:28px; line-height:28px; margin-top:45px; padding-right:30px; text-align:right; float:right;}
+#contact li { display:inline; padding-left:15px;}
+
+/*菜单列表样式*/
+.easyui-accordion ul{list-style-type:none;margin:0px; padding:5px;}
+.easyui-accordion ul li{padding:0px;}
+
+/*菜单图片*/
+.icon{ background:url(../images/tabicons.png) no-repeat;width:18px; line-height:18px; display:inline-block}
+/*服务器错误页面*/
+.error_main{width:600px; height:600px;margin:100px 0 0 120px ; padding:30px 0 0 130px; background:url(../images/error.png) 20px 20px no-repeat;}
+
+/* 表格公共样式 */
+.tableForForm {
+ 	 border:1px solid #7eabcd;
+     border-width:1px 0 0 1px;
+     margin:2px 0 2px 0;
+     text-align:center;
+     border-collapse:collapse; 
+     font-size:12px;
+}
+.tableForForm td,th {
+	padding:3px;
+	border:1px solid #8DB2E3;
+	border-width:0 1px 1px 0;
+	margin:2px 0 2px 0;
+	text-align:left; 
+	/*background:#E0ECFF;*/
+}
+.tableForForm th {
+	padding:3px; background:#E0ECF0; text-align: left; 
+}
+.tableForForm td.FormdataL{
+	background:#E0ECFF; text-align: right; 
+}
+.tableForForm td.FormdataB{
+	text-align: center; 
+}
+.toolbarCss {
+	padding:5px;
+	font-size:12px;
+}
+/*提示信息样式*/
+.msg-info{
+	float:left;
+	background:#FFFEE6;
+	color:#8F5700;
+	padding:12px;
+}
+.msg-tip{
+	width:24px;
+	height:16px;
+	float:left;
+}
+.expand{
+	position:absolute;
+	left:155px;
+}
