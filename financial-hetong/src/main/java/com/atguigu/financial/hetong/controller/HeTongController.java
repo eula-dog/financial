@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,8 @@ public class HeTongController {
 
     @RequestMapping("smp")
     public String toSmp(){
+
+
         return "smp";
     }
 
@@ -51,10 +54,10 @@ public class HeTongController {
             contract.setNlce(new NplmLoanContractEntity());
         }
         int total = heTongService.getCount(contract);
-      //  System.out.println("total====="+total);
+
         List<NplmContractAttributeEntity> nps =  heTongService.queryByParams(contract,(page-1),rows);
         request.setAttribute("nps",nps);
-       // System.out.println(nps.size());
+
         Map map = new HashMap<>();
         map.put("total",total);
         map.put("rows",nps);
@@ -72,9 +75,6 @@ public class HeTongController {
         session.setAttribute("hId",id);
         String areaDetail = getAreaDetail(np);
         model.addAttribute("areaDetail",areaDetail);
-
-        //逾期
-       // NplmOverdueContract
 
 
         return "common/查看还款情况页面";
@@ -96,33 +96,5 @@ public class HeTongController {
         areaDetail = np.getNbi().getfNation()+ np.getNbi().getfProvince()+ np.getNbi().getfCity()+ np.getNbi().getfStreet();
         return areaDetail;
     }
-  /*  @RequestMapping("/getData")
-    @ResponseBody
-    public List<NplmContractAttributeEntity> getData(@RequestParam("rows")Integer rows,@RequestParam("page")Integer page){
 
-        List<NplmContractAttributeEntity> nps = heTongService.getNp();
-        for (NplmContractAttributeEntity np : nps) {
-            NplmLoanContractEntity nlce = heTongService.getNplmLoanContractEntity(np.getLoanContractId());
-            NplmBorrowerInfoEntity nbi = heTongService.getNplmBorrowerInfoEntity(nlce.getBorrowerId() );
-            np.setNbi(nbi);
-            np.setNlce(nlce);
-        }
-        return nps;
-
-    }*/
-
-  /*  @RequestMapping("/query")
-    @ResponseBody
-    public List<NplmContractAttributeEntity> query( NplmContractAttributeEntity contract, HttpServletRequest request){
-       if( contract.getNbi()==null ) {
-           contract = new NplmContractAttributeEntity();
-           contract.setNbi(new NplmBorrowerInfoEntity());
-           contract.setNlce(new NplmLoanContractEntity());
-
-       }
-        List<NplmContractAttributeEntity> nps =  heTongService.queryByParams(contract);
-        request.setAttribute("nps",nps);
-        System.out.println(nps.size());
-        return nps;
-    }*/
 }

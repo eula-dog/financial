@@ -75,61 +75,6 @@ $(function(){
 }); 
 
 
-/*$(function(){
-    $('#current').datagrid({
-		url:'/getData'
-    } );
-});*/
-
-/*$('#pp').pagination({
-    pageList: [10,20,50,100]
-});
-
-$('#pp').pagination({
-    onSelectPage:function(pageNumber, pageSize){
-        $(this).pagination('loading');
-        alert('pageNumber:'+pageNumber+',pageSize:'+pageSize);
-        $(this).pagination('loaded');
-    }
-});*/
-
-/*$(function(){
-    var contract = null;
-    $.ajax({
-		url:"/query",
-		data:contract,
-		success:function (data) {
-            $('#current').datagrid({
-                data:data
-            })
-        }
-	})
-
-});*/
-//查询
-/*function searchInfo(){
-    var contractInfo = {};
-	var loanContractId = $("#loanContractId").val();
-	var clientName  = $("#clientName").val();
-	var identityNum = $("#identityNum").val();
-
-    contractInfo["loanContractId"] = loanContractId;
-    contractInfo["nbi.clientName"]=clientName;
-    contractInfo["nbi.identityNum"]=identityNum;
-    console.log(JSON.stringify(contractInfo));
-
-   // $('#current').ajax()
-    $.post("/query",contractInfo,function (data) {
-        console.log(JSON.stringify(data));
-        $('#current').datagrid('loadData',[]);
-        $('#current').datagrid({
-			data:data
-        });
-      /!*  $('#current').datagrid('reload');
-
-		return;*!/
-    })
-}*/
 $(function () {
 	$("#current").datagrid({
         url:'/query',
@@ -151,64 +96,17 @@ function searchInfo(){
     contractInfo["nbi.identityNum"]=identityNum;
     console.log(JSON.stringify(contractInfo));
     $('#current').datagrid('load',contractInfo);
-   // var params = $('#current').datagrid('options').queryParams;
-   /* params["contract"] = contractInfo;
-    $('#current').datagrid('load');*/
-    /* $("#current").datagrid({
-         url:'/query',
-         pagination:true,
-         queryParams:{"contract":contractInfo},
-         pageNumber:1,
-         pageSize:1,
-         pageList:[1,10]
-     })*/
+
 
 }
-/*function searchInfo(){
-    var isValid = $('#searchForm').form('validate');
-    if (isValid){
-        var params = $('#current').datagrid('options').queryParams; //先取得 datagrid 的查询参数
-        console.log("参数列表");
-        console.log(JSON.stringify(params));
-        console.log("------------------");
-        var fields =$('#searchForm').serializeArray(); //自动序列化表单元素为JSON对象
-        $.each( fields, function(i, field){
-            params[field.name] = field.value; //设置查询参数
-        });
-        $('#current').datagrid('load'); //设置好查询参数 reload 一下就可以了
-    }
-    return isValid;
-};*/
+
 function rowformatter( value,row,index ){
 	return "<a href='/sendData?id="+row.loanContractId+"\' onClick=\"window.open(this.href,    '_self',    'scrollbars=yes');return  false\">查看还款情况</a>" +"&nbsp;"+
         "<a href='/update?id='"+row.loanContractId+"\' onClick=\"window.open(this.href,    '_self',    'scrollbars=yes');return  false\">修改还款情况</a>";
 
-	//"<a href='/sendData?id='"+row.loanContractId+" onclick='show("+row.id+","+index+");'>"+'查看还款情况'+"</a>&nbsp<a href='#' onclick='show("+row.id+","+index+");'>"+'修改还款情况'+"</a>"
-	//return "<a href=\"../common/查看还款情况页面.html\" onclick=openDialog("+index+")>查看还款情况</a>&nbsp<a href=\"../common/修改还款情况页面.htm\" onclick=openDialog2('\"+rowIndex+\"')>修改还款情况</a>"
+
 }
-/**/
-/*function openDialog(rowIndex){
-    var a = $('#current').datagrid('selectRow',rowIndex);
-    var rows = $('#current').datagrid('getSelected');  //解决问题1
 
-    var contractInfo = {};
-    var loanContractId = rows.loanContractId;
-    var clientName  = rows["nbi"].clientName;
-
-
-    contractInfo["loanContractId"] = loanContractId;
-    contractInfo["nbi.clientName"]=clientName;
-
-
-	/!*var npId = rows.loanContractId;
-    console.log(npId);
-    var hId ={
-        hId:npId
-	};*!/
-    $.post("/sendData",contractInfo,function (data) {
-
-        });
-}*/
 
 //重置
 function clearForm(){
